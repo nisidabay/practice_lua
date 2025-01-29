@@ -3,5 +3,5 @@
 -- Read from console
 
 print("Enter your name: ")
-local name = io.read()
+name = io.read()
 print("Hello ".. name)

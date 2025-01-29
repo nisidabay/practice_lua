@@ -6,6 +6,7 @@ local enemies_counter = 0
 local wanted_enemies = 500
 
 while (enemies_counter < wanted_enemies) do
+    
     -- Get random enemy position for a 800x600 resolution
     local enemy_x = math.random(0,800)
     local enemy_y = math.random(0,600)

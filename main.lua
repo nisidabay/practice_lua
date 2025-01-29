@@ -24,12 +24,6 @@ local divide = x / 2       -- Division operation
 local power = x ^ 3        -- Exponentiation operation
 local modulus = x % 3      -- Modulus operation
 
-print(addition)
-print(minus)
-print(multiply)
-print(divide)
-print(power)
-print(modulus)
 -- Strings concatenation using '..'
 local surname = " Lacaci Moya"
 print(name .. surname)
