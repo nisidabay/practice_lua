@@ -44,7 +44,7 @@ personMetatable.newField = "I'm a new field"
 
 print(personMetatable.newField) -- Should print "I'm a new field"
 
-print("table fields:")
-for k, v in pairs(personMetatable) do
-	print(k, v)
+print("\nTable fields:")
+for k, v in pairs(person) do
+	print(k .. "=" .. v)
 end
