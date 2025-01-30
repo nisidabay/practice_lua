@@ -1,3 +1,5 @@
+#!/usr/sbin/lua
+--
 -- Create two tables
 local tableA = { 1, 2, 3 }
 local tableB = { 1, 2, 3 }
