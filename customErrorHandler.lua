@@ -1,4 +1,5 @@
 #!/usr/bin/lua
+--
 -- Custom error handler
 local function logError(err)
 	print("Logging error: ", err)
@@ -19,4 +20,5 @@ local function safeSquareRoot(number)
 	-- The error handling is done by logError, no need for else
 end
 
+safeSquareRoot(100)
 safeSquareRoot(-1) -- This will trigger the error handler
