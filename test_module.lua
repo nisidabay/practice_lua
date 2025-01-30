@@ -1,4 +1,7 @@
--- Create a simple module
+#!/usr/sbin/lua
+--
+-- Create a test module
+
 M = {
 	name = "John",
 	surname = "Smith",
