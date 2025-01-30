@@ -25,6 +25,7 @@ setmetatable(mytable, meta)
 local newtable = { 10, 20, 30 }
 
 -- Call the "mytable" as if it were a function and pass "newtable" as an
--- argument The custom __call metamethod is invoked to calculate and return the
+-- argument. 
+-- The custom __call metamethod is invoked to calculate and return the
 -- sum of elements from both tables
 print(mytable(newtable))
