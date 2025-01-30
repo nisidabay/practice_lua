@@ -1,4 +1,5 @@
 #!/usr/sbin/lua
+--
 -- The matrix is initialized with given values and specific elements are
 -- printed. This module demonstrates the creation and manipulation of a 2D array
 -- (matrix) in Lua.
