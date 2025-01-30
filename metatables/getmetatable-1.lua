@@ -1,34 +1,38 @@
-#!/usr/bin/lua
--- Define a table
-local myTable = { name = "John", age = 30 }
+#!/usr/bin/env lua
 
--- Create a metatable for the table
-local metatable = {
-	__index = function(table, key)
-		return "Key '" .. key .. "' not found!"
-	end,
-	__tostring = function(table)
-		return "This is a custom table with name: " .. table.name
-	end,
+-- Define a table with initial data
+local personTable = { name = "John", age = 30 }
+
+-- Create a metatable with custom behaviors
+local customMetatable = {
+    -- Custom __index function to handle missing keys
+    __index = function(_, key)
+        return "Key '" .. key .. "' not found!"
+    end,
+    -- Custom __tostring function to provide a string representation
+    __tostring = function(tbl)
+        return "This is a custom table with name: " .. tbl.name
+    end,
 }
 
--- Set the metatable for the table
-setmetatable(myTable, metatable)
+-- Set the custom metatable for the personTable
+setmetatable(personTable, customMetatable)
 
--- Use getmetatable() to retrieve the metatable
-local retrievedMetatable = getmetatable(myTable)
+-- Retrieve the metatable using getmetatable()
+local retrievedMetatable = getmetatable(personTable)
 
--- Check if the metatable is the same as the one we created
-if retrievedMetatable == metatable then
-	print("Metatable retrieved successfully!")
+-- Verify if the retrieved metatable matches the custom one
+if retrievedMetatable == customMetatable then
+    print("Metatable retrieved successfully!")
 else
-	print("Metatable retrieval failed!")
+    print("Metatable retrieval failed!")
 end
 
 -- Access the table using custom behavior defined in the metatable
-print(myTable.name) -- Output: John
-print(myTable.city) -- Output: Key 'city' not found!
+print(personTable.name) -- Output: John
+print(personTable.age) -- Output: 30
+print(personTable.city) -- Output: Key 'city' not found!
 
 -- Use custom __tostring behavior defined in the metatable
-print(tostring(myTable)) -- Output: This is a custom table with name: John
-print(getmetatable(myTable))
+print(tostring(personTable)) -- Output: This is a custom table with name: John
+
