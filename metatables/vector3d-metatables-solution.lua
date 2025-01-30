@@ -1,50 +1,46 @@
 #!/usr/bin/lua
-local meta = {}
+--
+-- Define a metatable for vector3d operations
+local vector3dMetatable = {}
+
+-- Define a vector3d module
 local vector3d = {}
 
--------------------------------------
--- Declare a new vector3d constructor
--------------------------------------
+-- Constructor for creating a new vector3d
 function vector3d.new(x, y, z)
-	local v = { x = x, y = y, z = z }
-	setmetatable(v, meta)
-	return v
+    local vector = { x = x, y = y, z = z }
+    setmetatable(vector, vector3dMetatable)
+    return vector
 end
 
--------------------------------------
--- Functions to work as metamethods
--------------------------------------
+-- Function to add two vector3d objects
 function vector3d.add(v1, v2)
-	return vector3d.new(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z)
+    return vector3d.new(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z)
 end
-meta.__add = vector3d.add -- bind the function to the metamethod
+vector3dMetatable.__add = vector3d.add -- Bind the add function to the __add metamethod
 
+-- Function to subtract one vector3d from another
 function vector3d.sub(v1, v2)
-	return vector3d.new(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z)
+    return vector3d.new(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z)
 end
-meta.__sub = vector3d.sub -- bind the function to the metamethod
+vector3dMetatable.__sub = vector3d.sub -- Bind the sub function to the __sub metamethod
 
+-- Function to convert a vector3d to a string representation
 function vector3d.tostring(v)
-	return "(" .. v.x .. "," .. v.y .. "," .. v.z .. ")"
+    return "(" .. v.x .. ", " .. v.y .. ", " .. v.z .. ")"
 end
-meta.__tostring = vector3d.tostring -- bind the function to the metamethod
+vector3dMetatable.__tostring = vector3d.tostring -- Bind the tostring function to the __tostring metamethod
 
--------------------------------------
--- Create two vector3d tables
--------------------------------------
+-- Create two vector3d instances
 local velocity = vector3d.new(10.0, -3.5, 0.0)
 local position = vector3d.new(5.0, 5.0, 5.0)
 
--------------------------------------
--- Add and subtract the two vectors
--------------------------------------
-local result_add = velocity + position
-local result_sub = velocity - position
+-- Perform vector addition and subtraction
+local resultAdd = velocity + position
+local resultSub = velocity - position
 
--------------------------------------
--- Print the vectors using tostring
--------------------------------------
-print("Velocity vector:" .. tostring(velocity))
+-- Print the vectors using the custom tostring metamethod
+print("Velocity vector: " .. tostring(velocity))
 print("Position vector: " .. tostring(position))
-print("Position + Velocity: " .. tostring(result_add))
-print("Position - Velocity: " .. tostring(result_sub))
+print("Position + Velocity: " .. tostring(resultAdd))
+print("Position - Velocity: " .. tostring(resultSub))
