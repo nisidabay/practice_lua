@@ -1,4 +1,5 @@
 #!/usr/bin/lua
+--
 -- Create a table with a metatable for custom assignment
 local customTable = {}
 local metatable = {
