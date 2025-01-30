@@ -1,18 +1,24 @@
 #!/usr/bin/lua
--- Create a table with a metatable for custom string representation
-local customTable = { "a", "Carlos", 1 }
-local metatable = {
-	__tostring = function(table)
-		local result = "{"
-		for k, v in ipairs(table) do
-			result = result .. k .. "=" .. v .. ", "
-		end
-		-- Substitute the last "," with "}"
-		result = result:sub(1, -3) .. "}"
-		return result
-	end,
-}
-setmetatable(customTable, metatable)
 
--- Convert the table to a string
-print(customTable)
+-- Define a table with initial elements
+local dataTable = { "a", "Carlos", 1 }
+
+-- Create a metatable with custom behaviors
+local customFormatter = {
+    -- Custom __tostring function to provide a formatted string representation
+    __tostring = function(tbl)
+        local result = "{"
+        for index, value in ipairs(tbl) do
+            result = result .. index .. "=" .. value .. ", "
+        end
+        -- Substitute the last ", " with "}"
+        result = result:sub(1, -3) .. "}"
+        return result
+    end,
+}
+
+-- Set the custom metatable for the dataTable
+setmetatable(dataTable, customFormatter)
+
+-- Print the table using the custom __tostring behavior
+print(dataTable)
