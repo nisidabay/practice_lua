@@ -1,4 +1,5 @@
 #!/usr/bin/lua
+--
 -- Define a coroutine function
 local function myCoroutine()
 	print("Coroutine started")
