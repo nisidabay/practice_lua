@@ -1,17 +1,25 @@
 #!/usr/bin/lua
+--
+-- Factorial example
 
---Factorial example
---From the book Lua Programming: The Ultimate Beginners's Guide to Learl Lua
---Step by Step
-
-function fact(n)
+-- Function to calculate the factorial of a number
+-- @param n The number to calculate the factorial of
+-- @return The factorial of the number
+local function factorial(n)
     if n == 0 then
         return 1
     else
-        return n * fact(n-1)
+        return n * factorial(n - 1)
     end
 end
 
-print("Enter a number: ")
-a = io.read()
-print(fact(a))
+-- Prompt the user to enter a number
+io.write("Enter a number: ")
+local input = io.read("*n")
+
+if input then
+    local result = factorial(input)
+    print(string.format("The factorial of %d is %d", input, result))
+else
+    print("Invalid input. Please enter a valid number.")
+end
