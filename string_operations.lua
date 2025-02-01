@@ -1,36 +1,10 @@
 #!/usr/bin/lua
---- 
--- This script demonstrates basic variable types, operators, and string manipulation in Lua.
-
--- Variable declarations
-local x = 10            -- Integer variable
-local name = "Carlos"   -- String variable
-local isAlive = false   -- Boolean variable
-local a = nil           -- Nil value
-
--- Print the values of the variables
-print("Integer:", x)
-print("Name:", name)
-print("Is Alive:", isAlive)
-print("Nil value:", a)
-
--- Arithmetic operations
-local addition = x + 5
-local subtraction = x - 3
-local multiplication = x * 2
-local division = x / 2
-local exponentiation = x ^ 3
-local modulus = x % 3
-
--- Print arithmetic results
-print("Addition:", addition)
-print("Subtraction:", subtraction)
-print("Multiplication:", multiplication)
-print("Division:", division)
-print("Exponentiation:", exponentiation)
-print("Modulus:", modulus)
+---
+-- This script demonstrates basic variable types, operators, and string
+-- manipulation in Lua.
 
 -- String concatenation
+local name ="Carlos"
 local surname = " Lacaci Moya"
 local fullName = name .. surname
 print("Full Name:", fullName)
@@ -51,6 +25,9 @@ print("Substring of Name:", subName)
 print("Position of 'c' in Surname:", findC)
 print("Length of Name:", strLength)
 
+local hello = "Hello, lua"
+print("the lenght of the string is " .. #hello)
+print("the lenght of the string is " .. string.len(hello))
 -- Multi-line string
 local multiLineString = [[
 dfdfd
@@ -60,4 +37,26 @@ dfdf
 ]]
 print("Multi-line String:\n" .. multiLineString)
 
--- Note: In Lua, string indexes start at 1
+-- Pattern matching
+local email = "john.doe@domain.com"
+local username= string.match(email, "[^@]+")
+print(username)
+
+local text= "The quick brown fox spent $300 in chicken burger and $12.5 in coke"
+
+local words={}
+local numbers={}
+
+for word in string.gmatch(text, "%a+") do
+    table.insert(words, word)
+end
+for number in string.gmatch(text, "%d+") do
+    table.insert(numbers, number)
+end
+
+for _,word in ipairs(words) do
+    print(word)
+end
+for _,number in ipairs(numbers) do
+    print(number)
+end
