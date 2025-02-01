@@ -20,5 +20,5 @@ local function safeSquareRoot(number)
 	-- The error handling is done by logError, no need for else
 end
 
-safeSquareRoot(100)
+safeSquareRoot(100) 
 safeSquareRoot(-1) -- This will trigger the error handler
