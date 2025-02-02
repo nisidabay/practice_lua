@@ -23,8 +23,12 @@ for num = min_val, max_val do
 	end
 end
 
--- Print missing numbers
+local function print_results()
 print("Missing numbers: ")
-for _,num in ipairs(missing) do
-	print(num)
+    if #missing == 0 then
+        print()
+        return
+    end
+    print(table.concat(missing, ", "))
 end
+print_results()
