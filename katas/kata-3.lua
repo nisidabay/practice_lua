@@ -3,15 +3,15 @@
 In this Kata, you will write a function that receives three strings a, b, c
 and return the following:
 
-    - If a is a palindrome, return true or false otherwise.
-    - The string b with alternated case; character at index 1 will be lowercase, followed by upper, and so on; Lua indices start with 1.
-    - The number of vowels in string c. Vowels are one of "aeiou".
-    - The length of all three strings combined.
+- If a is a palindrome, return true or false otherwise.
+- The string b with alternated case; character at index 1 will be lowercase,
+followed by upper, and so on.
+- The number of vowels in string c. Vowels are one of "aeiou".
+- The length of all three strings combined.
 
 You will need to use several string methods to solve this.
 
 The result looks like this, separated by one space:
-
 solve("aulua","codewars","amanac") = "true cOdEwArS 3 19"
 ]]
 
