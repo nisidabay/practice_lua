@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 -- In this Kata, you be given an array and your task is to return the elements
 -- whose value is exceeded by two or more elements in the array.
 --
