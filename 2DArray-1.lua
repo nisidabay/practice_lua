@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 ---
 --- This module demonstrates the creation and manipulation of a 2D array in Lua.
 -- @module two_dimensional_array
