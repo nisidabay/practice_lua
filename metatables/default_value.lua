@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 
 -- Define a table that will use a metatable to provide default values
 local myTable = {}
