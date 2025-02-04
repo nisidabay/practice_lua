@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Open file for reading
 local file,err = io.open("myFile.txt", "r")
