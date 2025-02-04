@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 ---
 -- Counting elements in a Lua table using ipairs, pairs, and a custom iterator.
 -- @module count_table_elements
