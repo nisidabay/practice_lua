@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Implements list-like behavior for tables
 
