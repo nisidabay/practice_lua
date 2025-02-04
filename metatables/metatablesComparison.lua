@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Create two tables
 local tableA = { 1, 2, 3 }
