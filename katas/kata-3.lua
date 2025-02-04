@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --[[ 
 In this Kata, you will write a function that receives three strings a, b, c
 and return the following:
