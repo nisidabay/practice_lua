@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Return the product of the number x and the random number f
 -- Or otherwise return the string "f is odd"
