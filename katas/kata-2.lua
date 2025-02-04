@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Find the missing numbers in the array
 
