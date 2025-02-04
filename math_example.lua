@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 -- Call the math_utils.lua module
 
 -- load the module
