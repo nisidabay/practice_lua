@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Find max number with variadic arguments
 --
