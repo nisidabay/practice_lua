@@ -1,4 +1,5 @@
 #!/usr/bin/lua
+--
 -- Define  a coroutine named 'coroutine_1' using an anonymous function
 local coroutine_1 = coroutine.create(function()
 	for i = 1, 10 do
