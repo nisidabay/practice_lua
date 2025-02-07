@@ -1,6 +1,5 @@
 -- Fighter Class Definition
 -- This class represents a fighter with various attributes and methods
---------------------------------
 
 -- Define the Fighter class
 local Fighter = {}
