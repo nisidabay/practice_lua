@@ -14,7 +14,8 @@ Person.__index = Person  -- Set the __index metamethod to allow method access
 -- metatable to Person.
 -- This allows the instance to access methods defined in the Person table.
 function Person:new(name, age)
-    local instance = setmetatable({}, Person)  -- Create a new instance and set its metatable
+    local instance = {}
+	setmetatable(instance, Person)  -- Create a new instance and set its metatable
     instance.name = name  -- Assign the name to the instance
     instance.age = age    -- Assign the age to the instance
     return instance       -- Return the new instance
