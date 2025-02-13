@@ -1,3 +1,5 @@
+#!/usr/sbin/lua
+--
 -- Fighter Class Definition
 -- This class represents a fighter with various attributes and methods
 
