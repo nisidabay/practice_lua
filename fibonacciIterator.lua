@@ -10,6 +10,6 @@ local function fibonacci()
 end
 
 local next_element = fibonacci()
-for _ = 1, 30 do
+for _ = 1, 15 do
 	print(next_element())
 end
