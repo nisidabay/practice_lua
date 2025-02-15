@@ -14,7 +14,7 @@ local function factorial(n)
 end
 
 -- Prompt the user to enter a number
-io.write("Enter a number: ")
+io.write("Enter a number to calculate its factorial: ")
 local input = io.read("*n")
 
 if input then
@@ -23,3 +23,4 @@ if input then
 else
     print("Invalid input. Please enter a valid number.")
 end
+
