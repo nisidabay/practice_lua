@@ -1,4 +1,4 @@
-#!/usr/bin/env lua
+#!/usr/bin/lua
 --
 -- Simulate a pipeline of commands with coroutines
 --
