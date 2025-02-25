@@ -1,5 +1,5 @@
+#!/usr/sbin/lua
 -- 
---
 -- Count numbers 3 and 7
 local MAX_NUMBERS = 5
 local input_buffer = ""
