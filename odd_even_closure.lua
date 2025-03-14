@@ -47,3 +47,4 @@ io.write("Enter a number: ")
 local num = io.read("*n")
 local message = string.format("Is odd or even %d: %s", num, isOddOrEven(num))
 print(message)
+
