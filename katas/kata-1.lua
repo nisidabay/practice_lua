@@ -12,8 +12,8 @@ end
 
 print(test(2))
 
--- Return x*y if y is greater than or equal to z and "Lua"
--- Or otherwise return x*y and "Codewars"
+-- -- Return x*y if y is greater than or equal to z and "Lua"
+-- -- Or otherwise return x*y and "Codewars"
 local function firstlua(x,y,z)
     if y>=z then return x.." "..x*y.." ".."Lua"
     else
