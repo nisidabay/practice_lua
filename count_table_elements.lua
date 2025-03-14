@@ -44,5 +44,5 @@ local colors = { "red", "green", nil, "blue", "yellow" }
 
 -- Print counts using ipairs, pairs, and the custom countAll function to demonstrate the differences
 print("Count with ipairs: " .. countWithIpairs(colors)) -- Output: 2
-print("Count with pairs: " .. countWithPairs(colors)) -- Output: 5
+print("Count with pairs: " .. countWithPairs(colors)) -- Output: 4
 print("Count with All: " .. countAll(colors)) -- Output: 5
