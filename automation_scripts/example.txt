@@ -1,0 +1,12 @@
+Let's start with a script that reads a file, counts the number of lines, and
+prints the result:
+
+
+`local filename = "example.txt"`
+`local line_count = 0`
+
+`for line in io.lines(filename) do`
+`    line_count = line_count + 1`
+`end`
+
+`print("Number of lines in file:", line_count)`
