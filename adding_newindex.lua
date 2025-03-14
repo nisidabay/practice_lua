@@ -1,5 +1,5 @@
 #!/usr/bin/lua
-
+--
 -- Create a table `t` to store key-value pairs
 local t = {}
 
