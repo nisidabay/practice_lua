@@ -7,22 +7,22 @@
 local Fighter = {}
 Fighter.__index = Fighter
 
--- Constructor to create a new Fighter object
+-- Constructor to create a new Fighter Instance
 -- @param attributes Table containing the initial attributes for the fighter
--- @return A new Fighter object
+-- @return A new Fighter Instance
 function Fighter:new(attributes)
-    local obj = {}
-    setmetatable(obj, self)
+    local Instance = {}
+    setmetatable(Instance, self)
 
     -- Private attributes table
-    obj._attributes = {
+    Instance._attributes = {
         name = attributes.name or "Unknown",
         country_of_origin = attributes.country_of_origin or "Unknown",
         special_attack_name = attributes.special_attack_name or "Unknown",
         difficulty_level = attributes.difficulty_level or 1,
     }
 
-    return obj
+    return Instance
 end
 
 -- Getter for name
@@ -90,23 +90,23 @@ function Fighter:attack_move()
     print("Fighter " .. self:get_name() .. " performed a " .. self._attributes.special_attack_name)
 end
 
--- Create a fighter object for Blanka
+-- Create a fighter Instance for Blanka
 local blanka = Fighter:new({
     name = "Blanka",
     country_of_origin = "Brazil",
     special_attack_name = "Electric shock",
     difficulty_level = 3,
 })
-print("Object " .. blanka:get_name() .. " was created.")
+print("Instance " .. blanka:get_name() .. " was created.")
 
--- Create a fighter object for Chun Li
+-- Create a fighter Instance for Chun Li
 local chun_li = Fighter:new({
     name = "Chun Li",
     country_of_origin = "China",
     special_attack_name = "Lightning kick",
     difficulty_level = 5,
 })
-print("Object " .. chun_li:get_name() .. " was created.")
+print("Instance " .. chun_li:get_name() .. " was created.")
 
 -- Call methods for Blanka
 blanka:light_punch()
