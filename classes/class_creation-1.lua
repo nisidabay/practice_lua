@@ -8,9 +8,8 @@ MyClass.__index = MyClass
 -- @return a new object
 function MyClass:New()
 	-- The empty table represents the object
-	local new_obj ={}
-	setmetatable(new_obj, self)
-	self.__index = self
+	local instance = {}
+	local new_obj = setmetatable(instance, MyClass)
 	new_obj._value = nil -- Use a private field to store the value
 	return new_obj
 end
