@@ -1,2 +1,3 @@
-Hello world
-This a text file to work with Lua
+Hello Lua Programming
+Hello Lua Programming
+This is from write_file.lua
