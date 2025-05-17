@@ -1,12 +1,11 @@
 #!/usr/bin/env lua
 --
 -- Open file for reading
-local file,err = io.open("myFile.txt", "r")
+local file, err = io.open("myFile.txt", "r")
 
 if file then
-	local char = file:read("*a")
-	print(char)
+	print("File opened successfully for reding")
 	file:close()
 else
-	print(err)
+	print("Error opening file:", err)
 end
