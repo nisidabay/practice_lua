@@ -1,4 +1,3 @@
-#!/usr/bin/lua
 --
 -- Define the MyClass table which will act as a class
 local MyClass = {}
