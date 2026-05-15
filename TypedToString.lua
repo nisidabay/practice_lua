@@ -1,16 +1,27 @@
-#!/usr/bin/lua
---
--- TypedToString Function
--- Converts a value to a string and prefixes that string with the value's type.
-local function TypedToString(value)
+#!/usr/bin/env lua
+--- TypedToString Module
+-- Converts a value to a string prefixed with its type.
+-- @module typed_to_string
+
+local M = {}
+
+--- Converts a value to a string prefixed with its type.
+-- @param value any The value to convert
+-- @return string A formatted string with type and value, or error message if nil
+function M.TypedToString(value)
     if value == nil then
-        return "Invalid function call"
+        return "Invalid function call: nil value"
     end
     return string.format("%s: %s", type(value), tostring(value))
 end
 
-print(TypedToString("abc"))
-print(TypedToString(123))
-print(TypedToString(true))
-print(TypedToString(function() end))
-print(TypedToString())
+-- Main execution (demonstration)
+local function main()
+    print(M.TypedToString("abc"))
+    print(M.TypedToString(123))
+    print(M.TypedToString(true))
+    print(M.TypedToString(function() end))
+    print(M.TypedToString()) -- nil argument
+end
+
+main()
