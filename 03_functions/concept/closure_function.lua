@@ -1,0 +1,151 @@
+#!/usr/bin/env lua
+
+-- -- Testing code
+-- local a, b = 1, 2
+--
+-- print("a is: " .. a)
+-- print("b is: " .. b)
+--
+-- local function len(val)
+--     if type(val) == "string" then
+--         return #val
+--     end
+--     return nil
+-- end
+--
+-- print(len(""))
+-- print(len("abc"))
+-- print(len(true))
+--
+-- local function factorial(n)
+-- 	print("Calling factorial(" .. n .. ")")
+-- 	if n == 0 then
+-- 		print("Returning 1 (base case)")
+-- 		return 1
+-- 	else
+-- 		local result = n * factorial(n - 1)
+-- 		print("Returning " .. result .. " for factorial(" .. n .. ")")
+-- 		return result
+-- 	end
+-- end
+--
+-- factorial(4)
+--
+-- local function fact_accumulator(n, acc)
+-- 	acc = acc or 1
+-- 	print("Calling fact_accumulator(" .. n .. ", " .. acc .. ")")
+-- 	if n == 0 then
+-- 		print("Returning " .. acc .. " (base case)")
+-- 		return acc
+-- 	else
+-- 		return fact_accumulator(n - 1, n * acc)
+-- 	end
+-- end
+--
+-- fact_accumulator(4, 1)
+--
+-- local function factorial_debug(n)
+-- 	print("Calling factorial_debug")
+-- 	if n == 0 then
+-- 		return 1
+-- 	else
+-- 		return n * factorial(n - 1)
+-- 	end
+-- end
+--
+-- factorial_debug(4)
+-- -- -- Create a function to find permutations in a string
+-- -- local function find_permutations(input_string)
+-- --     local function generate_permutations(current_character, remaining_characters, collected_permutations)
+-- --         if #remaining_characters == 0 then
+-- --             table.insert(collected_permutations, current_character)
+-- --         else
+-- --             for i = 1, #remaining_characters do
+-- --                 local new_string = current_character .. remaining_characters:sub(i, i)
+-- --                 print("new_string: ", new_string)
+-- --                 local new_remaining = remaining_characters:sub(1, i - 1) .. remaining_characters:sub(i + 1)
+-- --                 print("new_remaining: ", new_remaining)
+-- --                 generate_permutations(new_string, new_remaining, collected_permutations)
+-- --             end
+-- --         end
+-- --     end
+-- --
+-- --     local permutations_list = {}
+-- --     generate_permutations("", input_string, permutations_list)
+-- --     return permutations_list
+-- -- end
+-- --
+-- -- -- Example usage
+-- -- local permutations = find_permutations("abc")
+-- -- for _, permutation in pairs(permutations) do
+-- --     print(permutation)
+-- -- end
+-- --
+--
+-- Define a Calculator class with methods for addition and subtraction
+-- Calculator = {
+--     value = 0,
+--     add = function(self, num)
+--         -- Add the given number to the current value
+--         self.value = self.value + num
+--         return self.value
+--     end,
+--     substract = function(self, num)
+--         -- Subtract the given number from the current value
+--         self.value = self.value - num
+--         return self.value
+--     end
+-- }
+
+-- Create an instance of the Calculator class
+-- local cal = Calculator
+
+-- -- Use the add method to add 2 to the current value
+-- print(cal:add(2))
+-- print(cal:add(4))
+-- print(cal.add(cal,6))
+--
+-- -- Create independent instances of Calculator
+-- -- Define a Calculator class with methods for addition and subtraction
+-- local function newCalculator()
+--     return {
+--         value = 0,
+--         add = function(self, num)
+--             self.value = self.value + num
+--             return self.value
+--         end,
+--         subtract = function(self, num)
+--             self.value = self.value - num
+--             return self.value
+--         end
+--     }
+-- end
+--
+-- -- Create an instance of the Calculator class
+-- local cal1 = newCalculator()
+-- local cal2 = newCalculator()
+--
+-- -- Use the add method on cal1
+-- print(cal1.add(cal1,2))  -- Output: 2
+-- print(cal1:add(4))  -- Output: 6
+--
+-- -- Use the add method on cal2 (independent of cal1)
+-- print(cal2:add(10)) -- Output: 10
+-- print(cal2.add(cal2,10)) -- Output: 10
+-- print(cal2:subtract(5)) -- Output: 5
+--
+-- Assignment: Prepend Number to String This code defines a table of functions
+-- that prepend a number (in word form) to a given string. Each function
+-- corresponds to a number in the 'numbers' list and returns a string with the
+-- number prepended.
+
+local numbers = { "one", "two", "three" }
+PrependNumber = {}
+for num, num_name in ipairs(numbers) do
+	PrependNumber[num] = function(str)
+		return num_name .. ": " .. str
+	end
+end
+print(PrependNumber[1]("Hello"))
+print(PrependNumber[2]("Lua"))
+print(PrependNumber[3]("Weird"))
