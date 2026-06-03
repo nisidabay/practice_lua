@@ -1,42 +1,27 @@
-#!/usr/bin/lua
---
--- Async file processing
---
--- This script is an example of how to use async file processing with coroutines
+#!/usr/bin/env lua
+-- coroutine.wrap() reads lines from two files, interleaving them
 
--- Function to process each file line by line
-local function process_file(filename)
-    local file, err = io.open(filename, "r")
-    if not file then
-        print("Error opening file " .. filename .. ": " .. err)
-        return
+local function read_lines(filename)
+    local co = coroutine.create(function()
+        local f = io.open(filename, "r") or error("cannot open " .. filename)
+        for line in f:lines() do coroutine.yield(line) end
+        f:close()
+    end)
+    return function()
+        local _, val = coroutine.resume(co)
+        return val
     end
-    for line in file:lines() do
-        -- Simulate processing (e.g., searching for a pattern)
-        print("Processing line in " .. filename .. ": " .. line)
-        coroutine.yield()  -- Yield after processing each line
-    end
-    file:close()
 end
 
--- List of filenames to process
-local filenames = {"log1.txt", "log2.txt", "log3.txt"}
-local coroutines = {}
+-- Write two sample files
+io.open("/tmp/a.txt", "w"):write("A1\nA2\nA3\n"):close()
+io.open("/tmp/b.txt", "w"):write("B1\nB2\n"):close()
 
--- Create a coroutine for each file
-for _, filename in ipairs(filenames) do
-    local co = coroutine.create(function() process_file(filename) end)
-    table.insert(coroutines, co)
+local a = read_lines("/tmp/a.txt")
+local b = read_lines("/tmp/b.txt")
+for i = 1, 5 do
+    local line = a() or b()
+    if not line then break end
+    print(line)
 end
-
--- Run all coroutines 
-while true do
-    local all_done = true
-    for _, co in ipairs(coroutines) do
-        if coroutine.status(co) ~= "dead" then
-            all_done = false
-            coroutine.resume(co)
-        end
-    end
-    if all_done then break end
-end
+os.remove("/tmp/a.txt"); os.remove("/tmp/b.txt")

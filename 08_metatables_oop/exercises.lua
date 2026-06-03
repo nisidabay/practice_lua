@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Metatables & OOP. Run: lua exercises.lua
+-- exercises.lua -- Metatables & OOP. Run: lua exercises.lua
 
 print("=== Ex 1: __index default value ===")
 local defaults = {__index = function(t, k) return 0 end}

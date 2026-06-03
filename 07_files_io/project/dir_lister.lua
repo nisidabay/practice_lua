@@ -1,34 +1,24 @@
 #!/usr/bin/env lua
---
--- List directory contents
--- Install dependencies sudo pacman -S luarocks
--- luarocks install luafilesystem
-local lfs = require("lfs")
+-- List directory contents with sizes and dates (requires lfs)
 
--- Function to list directory contents
-local function list_directory_contents(directory)
-	if not directory then
-		print("Provide a directory path")
-		return
-	end
+local dir = arg[1] or "."
 
-	local attr = lfs.attributes(directory)
-	if not attr or attr.mode ~= "directory" then
-		print("Invalid directory path")
-		return
-	end
+local function list(path)
+    local lfs = require("lfs")
+    print("Contents of " .. path .. ":")
+    print(string.format("%-25s %10s  %s", "NAME", "SIZE", "MODIFIED"))
+    print(string.rep("-", 55))
 
-	for file in lfs.dir(directory) do
-		if file ~= "." and file ~= ".." then
-			print(file)
-		end
-	end
+    for f in lfs.dir(path) do
+        if f ~= "." and f ~= ".." then
+            local attr = lfs.attributes(path .. "/" .. f)
+            if attr then
+                print(string.format("%-25s %10d  %s",
+                    f, attr.size or 0, os.date("%Y-%m-%d", attr.modification)))
+            end
+        end
+    end
 end
 
--- Main execution
-local dir = arg[1]
-if dir == nil then
-	print("Usage: dir_lister.lua <dir>")
-else
-	list_directory_contents(dir)
-end
+local ok, err = pcall(list, dir)
+if not ok then print("Error: lfs not installed? (luarocks install luafilesystem)") end

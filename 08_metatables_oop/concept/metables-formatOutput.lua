@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/usr/bin/env lua
 
 -- Define a table with initial elements
 local dataTable = { "a", "Carlos", 1 }

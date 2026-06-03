@@ -1,18 +1,19 @@
 #!/usr/bin/env lua
---
--- Read the whole file
-local function readFile()
-	io.write("Enter a file: ")
-	local filename = io.read()
-	local file = io.open(filename, "r")
+local f = io.open("/tmp/lua_readall_demo.txt", "w")
+f:write("One\nTwo\nThree\n")
+f:close()
 
-	if not file then
-		local error = string.format("File not found [%s]", filename)
-		print(error)
-	else
-		local contents = file:read("a")
-		print(contents)
-		file:close()
-	end
+-- read("*a") = read all content as one string
+f = io.open("/tmp/lua_readall_demo.txt", "r")
+local all = f:read("*a")
+f:close()
+print(all)
+
+-- Without explicit open: whole-file read in one statement
+local lines = {}
+for line in io.lines("/tmp/lua_readall_demo.txt") do
+    lines[#lines + 1] = line
 end
-readFile()
+print("Via io.lines:", table.concat(lines, " | "))
+
+os.remove("/tmp/lua_readall_demo.txt")

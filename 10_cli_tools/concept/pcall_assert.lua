@@ -1,25 +1,17 @@
 #!/usr/bin/env lua
---
--- Using pcall and assert
+-- pcall + assert: catch errors with a message
 
--- Function that raise an error
 local function divide(a, b)
-	if b == 0 then
-		error("Cannot divide by zero!")
-	else
-		return a / b
-	end
+    assert(type(a) == "number" and type(b) == "number", "both args must be numbers")
+    assert(b ~= 0, "division by zero")
+    return a / b
 end
 
-local success, result = pcall(divide(10, 0))
-if success then
-	print("Result: ", result)
-else
-	print("Error: ", result)
-end
+local ok, result = pcall(divide, 10, 2)
+print("10/2:", ok and result or result)
 
--- Comment out the previous function
-local x=10
-local y=20
+ok, result = pcall(divide, 10, 0)
+print("10/0:", result)                    -- "division by zero"
 
-assert(x==y, "x and y must be equal")
+ok, result = pcall(divide, "x", 2)
+print("'x'/2:", result)                   -- "both args must be numbers"

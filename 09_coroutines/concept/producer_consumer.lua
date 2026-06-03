@@ -1,32 +1,19 @@
-#!/usr/bin/lua
---
--- Producer-Consumer example using coroutines
-
--- Define a producer coroutine function
+#!/usr/bin/env lua
 local function producer()
-	local item = 0
-	for _ = 1, 10 do
-		item = item + 1
-		print("Produced item " .. item)
-		coroutine.yield(item) -- Yield control and pass the produced item
-	end
+    return coroutine.create(function()
+        for i = 1, 5 do
+            print("  Produced:", i)
+            coroutine.yield(i)
+        end
+    end)
 end
 
--- Define a consumer coroutine function
 local function consumer(prod)
-	while true do
-		local status, item = coroutine.resume(prod) -- Resume producer to get an item
-		if status and item then
-			print("Consumer gets item " .. item)
-		else
-			print("Consumer has finished")
-			break
-		end
-	end
+    while coroutine.status(prod) ~= "dead" do
+        local ok, item = coroutine.resume(prod)
+        if ok and item then print("  Consumed:", item) end
+    end
 end
 
--- Create the producer coroutine
-local prod = coroutine.create(producer)
-
--- Start the consumer coroutine
-consumer(prod)
+print("=== Producer-Consumer ===")
+consumer(producer())

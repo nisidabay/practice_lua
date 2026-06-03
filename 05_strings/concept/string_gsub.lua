@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Returns a copy of str in which all or "n" if given, occurrences of the
 -- pattern have been replaced by the replacement string repl.

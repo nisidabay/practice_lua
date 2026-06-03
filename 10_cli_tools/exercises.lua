@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — CLI Tools & error handling. Run: lua exercises.lua
+-- exercises.lua -- CLI Tools & error handling. Run: lua exercises.lua
 
 print("=== Ex 1: Arg parsing ===")
 local function show_args()

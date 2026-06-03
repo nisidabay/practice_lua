@@ -1,3 +1,3 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 --

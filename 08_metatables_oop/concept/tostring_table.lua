@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/usr/bin/env lua
 
 -- Create a table "mytable" with values 10, 20, and 30
 local mytable = setmetatable({ 10, 20, 30 }, {

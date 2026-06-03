@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Functions practice. Run: lua exercises.lua
+-- exercises.lua -- Functions practice. Run: lua exercises.lua
 
 print("=== Ex 1: Multiple returns ===")
 local function minmax(a, b)

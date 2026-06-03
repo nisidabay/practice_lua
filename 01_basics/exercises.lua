@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Basics practice. Run: lua exercises.lua
+-- exercises.lua -- Basics practice. Run: lua exercises.lua
 
 print("=== Ex 1: Variables and types ===")
 local name = "Carlos"; local score = 95; local passed = true

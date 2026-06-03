@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/usr/bin/env lua
 -- Create a 2D array with 3 rows and 4 columns
 local rows = 3
 local columns = 4

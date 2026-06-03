@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 --Returns an iterator function that, each time it is called, returns the next
 --captures from the pattern over the string `s`.

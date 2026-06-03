@@ -1,43 +1,19 @@
-#!/usr/bin/lua
--- Lua script to calculate the average of numbers entered by the user.
+#!/usr/bin/env lua
+-- varargs: ... captures any extra arguments into a table via {...}
 
--- Function to calculate the average of a list of numbers.
--- @param ... A variable number of numerical arguments.
--- @return The average of the provided numbers.
 local function average(...)
-	local result = 0
-	local args = { ... } -- Pack the arguments into a table.
-
-	for _, v in pairs(args) do
-		result = result + v
-	end
-
-	return result / #args -- Calculate the average.
+    local args = {...}
+    local sum = 0
+    for _, v in ipairs(args) do sum = sum + v end
+    return sum / #args
 end
 
--- Function to read a list of numbers from the user.
--- @return A table containing the user-entered numbers.
-local function readNumbers()
-	local numbers = {}
-	while true do
-		print("Enter a number (or 'q' to calculate the average): ")
-		local input = io.read()
+print("avg(10,20,30):", average(10, 20, 30))       --> 20.0
+print("avg(5,5,5,5):", average(5, 5, 5, 5))        --> 5.0
 
-		if input == "q" then
-			break
-		else
-			local number = tonumber(input)
-			if number then
-				table.insert(numbers, number)
-			else
-				print("Invalid input. Please enter a valid number or 'q' to calculate the average.")
-			end
-		end
-	end
-	return numbers
+-- ... can be forwarded: wrap function calls another
+local function log_and_call(fn, ...)
+    print("calling with", #({...}), "args")
+    return fn(...)
 end
-
--- Read numbers from the user and calculate the average.
-local userNumbers = readNumbers()
-local avg = average(table.unpack(userNumbers))
-print("The average is: " .. avg)
+print("via wrapper:", log_and_call(average, 4, 6, 8)) --> 6.0

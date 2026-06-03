@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Returns the substring of str from start to end. If start is omitted it
 -- defaults to the entire string

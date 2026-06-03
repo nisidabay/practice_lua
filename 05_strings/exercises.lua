@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Strings & pattern matching. Run: lua exercises.lua
+-- exercises.lua -- Strings & pattern matching. Run: lua exercises.lua
 
 print("=== Ex 1: Concatenation and length ===")
 local a, b = "Hello", "World"

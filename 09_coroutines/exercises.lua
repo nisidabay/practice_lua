@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Coroutines practice. Run: lua exercises.lua
+-- exercises.lua -- Coroutines practice. Run: lua exercises.lua
 
 print("=== Ex 1: Basic create/resume ===")
 local co = coroutine.create(function()

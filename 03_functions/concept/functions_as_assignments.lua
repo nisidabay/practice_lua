@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 
 -- Function to sum a variable number of arguments
 local function add(...)

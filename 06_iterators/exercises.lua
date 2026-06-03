@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Iterators practice. Run: lua exercises.lua
+-- exercises.lua -- Iterators practice. Run: lua exercises.lua
 
 print("=== Ex 1: pairs vs ipairs ===")
 local t = {[2] = "two", [1] = "one", [3] = "three", name = "extra"}

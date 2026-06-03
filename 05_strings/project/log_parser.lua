@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- log_parser.lua — Parse Apache-style combined log lines
+-- log_parser.lua -- Parse Apache-style combined log lines
 -- Usage: lua log_parser.lua [logfile]  (default: sample data)
 
 local sample_logs = {

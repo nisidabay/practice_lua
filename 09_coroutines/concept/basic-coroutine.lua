@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 local function myCoroutine()
     print("Coroutine started")
     coroutine.yield()  -- Yield and give up control

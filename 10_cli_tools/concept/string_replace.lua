@@ -1,25 +1,12 @@
 #!/usr/bin/env lua
---
--- Function to replace occurrences of a substring within a string
--- @param str: string to perform replacement on
--- @param find: substring to find
--- @param replace: substring to replace with
--- @return new string with replacements or error message
-local function replace_string(str, find, replace)
-    if not str or not find or not replace then
-        return nil, "Error: Missing arguments. Usage: <script> <string> <find> <replace>"
-    end
-    return string.gsub(str, find, replace)
+-- CLI sed-style replacement: lua string_replace.lua "hello world" world Lua
+
+if #arg < 3 then
+    print("Usage: lua string_replace.lua <string> <find> <replace>")
+    os.exit(1)
 end
 
-local str = arg[1]
-local find = arg[2]
-local replace = arg[3]
-
-local new_string, err = replace_string(str, find, replace)
-
-if err then
-    print(err)
-else
-    print(new_string)
-end
+local str, find, replace = arg[1], arg[2], arg[3]
+local result, count = string.gsub(str, find, replace)
+print(result)
+print(string.format("(%d replacements)", count))

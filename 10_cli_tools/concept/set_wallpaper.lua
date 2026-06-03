@@ -1,10 +1,6 @@
 #!/usr/bin/env lua
+-- Manages wallpaper: set, random, init (uses wal, feh, rofi, notify-send)
 
--- This script manages wallpaper settings, including selecting, setting, and
--- updating wallpapers. It also updates related resources and sends
--- notifications upon changes.
-
--- Path of the current wallpaper in use
 local cache_file = os.getenv("HOME") .. "/.cache/current_wallpaper"
 -- Path of the current wallpaper in use with rofi syntax
 local rasi_file = os.getenv("HOME") .. "/.config/rofi/current_wallpaper.rasi"

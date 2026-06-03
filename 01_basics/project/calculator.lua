@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- calculator.lua — Simple REPL calculator.
+-- calculator.lua -- Simple REPL calculator.
 
 print("=== Lua Calculator ===")
 print("Type: number operator number  (e.g., 5 + 3)")

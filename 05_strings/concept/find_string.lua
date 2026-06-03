@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Search the first occurrence of a string in a str, returning the start and end
 -- indexes or nil

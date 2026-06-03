@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Files & I/O practice. Run: lua exercises.lua
+-- exercises.lua -- Files & I/O practice. Run: lua exercises.lua
 
 print("=== Ex 1: Write and read a file ===")
 local fname = "/tmp/lua_practice_test.txt"

@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- hello.lua — Your first Lua script: variables, types, and print.
+-- hello.lua -- Your first Lua script: variables, types, and print.
 
 local name = "Carlos"
 local age = 30

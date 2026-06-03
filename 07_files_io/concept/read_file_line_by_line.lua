@@ -10,7 +10,7 @@ local function readFileLineByLine()
 		if file then
 			file:close()
 			for line in io.lines(fname) do
-				print("→", line)
+				print("->", line)
 			end
 		else
 			print(string.format("Error opening file [%s]: %s", fname, err))

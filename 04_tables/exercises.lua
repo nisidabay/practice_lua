@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Tables practice. Run: lua exercises.lua
+-- exercises.lua -- Tables practice. Run: lua exercises.lua
 
 print("=== Ex 1: Array indexing (1-based!) ===")
 local fruits = {"apple", "banana", "cherry"}

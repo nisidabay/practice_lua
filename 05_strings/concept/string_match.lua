@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Look for the first match of a string returning the string found or nil
 local str = "Hello world, goodbye world"

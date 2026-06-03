@@ -1,4 +1,4 @@
-#!/usr/bin/lua
+#!/usr/bin/env lua
 --
 -- Create a table `t` to store key-value pairs
 local t = {}

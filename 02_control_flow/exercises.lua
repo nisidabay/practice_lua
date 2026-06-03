@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- exercises.lua — Control flow practice. Run: lua exercises.lua
+-- exercises.lua -- Control flow practice. Run: lua exercises.lua
 
 print("=== Ex 1: if/else grade ===")
 local score = 85

@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- guessing_game.lua — Guess the number between 1 and 100.
+-- guessing_game.lua -- Guess the number between 1 and 100.
 math.randomseed(os.time())
 local secret = math.random(1, 100)
 local guess, attempts = nil, 0

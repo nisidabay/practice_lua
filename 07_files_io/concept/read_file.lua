@@ -1,17 +1,11 @@
 #!/usr/bin/env lua
---
--- Read a file
-local function readFile()
-	io.write("Enter a file: ")
-	local filename = io.read()
-	local file = io.open(filename, "r")
+local f = io.open("/tmp/lua_read_demo.txt", "w")
+f:write("Line one\nLine two\nLine three\n")
+f:close()
 
-	if file then
-		local content = file:read("*a")
-		print(content)
-		file:close()
-	else
-		print(string.format("File not found [%s]", filename))
-	end
-end
-readFile()
+-- Read entire file
+f = io.open("/tmp/lua_read_demo.txt", "r")
+print(f:read("*a"))
+f:close()
+
+os.remove("/tmp/lua_read_demo.txt")

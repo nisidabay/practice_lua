@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
--- arithmetic.lua — All of Lua's math operators.
+-- arithmetic.lua -- All of Lua's math operators.
 
 local a, b = 10, 3
 

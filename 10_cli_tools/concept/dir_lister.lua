@@ -1,34 +1,17 @@
 #!/usr/bin/env lua
---
--- List directory contents
--- Install dependencies sudo pacman -S luarocks
--- luarocks install luafilesystem
-local lfs = require("lfs")
+-- List directory contents (stdlib only, no external deps)
 
--- Function to list directory contents
-local function list_directory_contents(directory)
-	if not directory then
-		print("Provide a directory path")
-		return
-	end
+local dir = arg[1] or "."
 
-	local attr = lfs.attributes(directory)
-	if not attr or attr.mode ~= "directory" then
-		print("Invalid directory path")
-		return
-	end
-
-	for file in lfs.dir(directory) do
-		if file ~= "." and file ~= ".." then
-			print(file)
-		end
-	end
+local function list(path)
+    local h = io.popen('ls -lh "' .. path .. '" 2>/dev/null')
+    if not h then
+        print("Cannot access:", path)
+        return
+    end
+    print("Contents of " .. path .. ":")
+    print(h:read("*a"))
+    h:close()
 end
 
--- Main execution
-local dir = arg[1]
-if dir == nil then
-	print("Usage: dir_lister.lua <dir>")
-else
-	list_directory_contents(dir)
-end
+list(dir)

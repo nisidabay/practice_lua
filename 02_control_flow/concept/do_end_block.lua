@@ -1,4 +1,4 @@
-#!/usr/sbin/lua
+#!/usr/bin/env lua
 --
 -- Returning from the middle of a block
 local function process_file_workflow(filename)

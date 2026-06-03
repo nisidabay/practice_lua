@@ -1,28 +1,23 @@
-#!/usr/bin/lua
---
--- Simulate a pipeline of commands with coroutines
---
+#!/usr/bin/env lua
+-- Pipeline: ls -> grep -> print (each stage is a coroutine yielding values)
 
-local function ls()
-    local handle = io.popen("ls")
-    if handle == nil then
-        return nil
-    end
-    for filename in handle:lines() do
-        coroutine.yield(filename)  -- Yield the filename after each line of output
-    end
-    handle:close()
+local function ls(dir)
+    local h = io.popen("ls " .. (dir or "."))
+    return coroutine.wrap(function()
+        for f in h:lines() do coroutine.yield(f) end
+        h:close()
+    end)
 end
 
-local function grep(pattern)
-    local co = coroutine.create(ls)
-    while true do
-        local status, filename = coroutine.resume(co)
-        if not status or filename == nil then break end
-        if filename:find(pattern) then
-            print("Found file: " .. filename)
+local function grep(pattern, source)
+    return coroutine.wrap(function()
+        for item in source do
+            if item:find(pattern) then coroutine.yield(item) end
         end
-    end
+    end)
 end
 
-grep(".lua")
+print("Files with 'lua':")
+for f in grep("lua", ls(".")) do
+    print(" ", f)
+end

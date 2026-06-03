@@ -1,20 +1,11 @@
 #!/usr/bin/env lua
---
--- Append to a specific file
-local function appendToFile()
-	io.write("Enter filename to append to: ")
-	local filename = io.read()
+local f = io.open("/tmp/lua_append_demo.txt", "w")
+f:write("original\n")
+f:close()
 
-	io.write("Enter content to append: ")
-	local contentToAppend = io.read()
+f = io.open("/tmp/lua_append_demo.txt", "a")   -- "a" = append mode
+f:write("appended line\n")
+f:close()
 
-	local file, err = io.open(filename, "a")
-	if file then
-		file:write(contentToAppend .. "\n")
-		file:close()
-		print("Content appended to '" .. filename .. "'")
-	else
-		print("Error opening file: " .. err)
-	end
-end
-appendToFile()
+for line in io.lines("/tmp/lua_append_demo.txt") do print(line) end
+os.remove("/tmp/lua_append_demo.txt")
