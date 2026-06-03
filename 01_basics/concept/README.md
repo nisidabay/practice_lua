@@ -5,11 +5,11 @@ Variables, types, arithmetic, and printing.
 ## Quick Start
 
 ```bash
-lua hello.lua        # Variables, types, type()
-lua basic.lua        # Variable declarations and expressions
-lua arithmetic.lua   # All math operators
-lua globals.lua      # Global vs local scope
-lua printing.lua     # print() formatting
+lua hello.lua                     # Variables, types, type()
+lua basic.lua                     # Variable declarations and expressions
+lua arithmetic.lua                # All math operators
+lua global_variables.lua          # Global vs local scope
+lua printing_values_oneline.lua   # print() formatting
 ```
 
 ## Common Patterns
