@@ -6,7 +6,7 @@ Master conditionals and iteration: if/else, while, for, and goto.
 
 ```
 02_control_flow/
-├── concept/      # 7 teaching files covering core concepts
+├── concept/      # 8 teaching files covering core concepts
 ├── exercises/    # 5 interactive practice files with TODO sections
 ├── exercises.lua # Solved reference solutions
 └── project/      # Number guessing game

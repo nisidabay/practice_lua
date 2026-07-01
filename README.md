@@ -29,6 +29,18 @@ lua -v    # Lua 5.4+ likely already installed
 NN_groupname/
 ├── concept/          # Progressive teaching files
 │   └── README.md     # Quick start, learning path, patterns
-├── exercises.lua     # Solved practice problems
+├── exercises.lua     # Solved reference solutions
+├── exercises/        # ✏️ Interactive practice — fill in the TODO sections
+│   ├── ex-01-xxx.lua
+│   └── ...
 └── project/          # One real mini-application
 ```
+
+## How to Practice
+
+1. Open an exercise file in the `exercises/` directory
+2. Read the instructions and find the `-- TODO` section
+3. Fill in the implementation
+4. Run: `lua exercises/ex-01-xxx.lua`
+5. Check the output matches the expected values
+6. Stuck? Check `exercises.lua` for the solution

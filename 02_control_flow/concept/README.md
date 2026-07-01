@@ -9,6 +9,7 @@ lua conditional.lua             # if/elseif/else
 lua while_loop.lua              # while loop
 lua for_loop.lua                # numeric for, generic for
 lua do_end_block.lua            # Local scope blocks
+lua repeat_until.lua            # repeat/until — loop runs at least once
 lua break_nested_loops.lua      # Breaking out of nested loops
 lua goto_skip_event_numbers.lua # goto for flow control
 lua is_prime.lua                # Real algorithm: prime number check
@@ -22,6 +23,7 @@ lua is_prime.lua                # Real algorithm: prime number check
 | `while_loop.lua` | while, break, infinite loop guard |
 | `for_loop.lua` | numeric for (start, stop, step), generic for |
 | `do_end_block.lua` | do/end creates a new scope |
+| `repeat_until.lua` | repeat/until — loop runs at least once |
 | `break_nested_loops.lua` | break only exits the innermost loop |
 | `goto_skip_event_numbers.lua` | goto/label as structured jump |
 | `is_prime.lua` | Algorithm practice: prime number check |
@@ -47,6 +49,20 @@ end
 local i = 1
 while i <= 5 do
     print(i); i = i + 1
+end
+
+-- repeat/until (always runs at least once)
+local n = 1
+repeat
+    print(n)
+    n = n + 1
+until n > 5
+
+-- Equivalent while (may never run)
+n = 1
+while n <= 5 do
+    print(n)
+    n = n + 1
 end
 ```
 
